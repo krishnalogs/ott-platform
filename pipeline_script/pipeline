@@ -51,12 +51,14 @@ pipeline{
         stage('Sonarqube Analysis') {
             steps {
                 withSonarQubeEnv('sonar-server') {
+                    sh """
                     $SONARQUBE_SCANNER_HOME/bin/sonar-scanner \
                     -Dsonar.projectKey=ott-platform-prime \
                     -Dsonar.projectName=ott-platform-prime \
                     -Dsonar.sources=. \
                     -Dsonar.host.url=http://localhost:9000 \
                     -Dsonar.login=sonar-token
+                    """
                 }
             }
         }
