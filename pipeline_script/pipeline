@@ -37,9 +37,9 @@ pipeline{
                     $SONARQUBE_SCANNER_HOME/bin/sonar-scanner \
                     -Dsonar.projectKey=ott-platform-prime \
                     -Dsonar.projectName=ott-platform-prime \
-                    -Dsonar.sources=. \
-                    -Dsonar.host.url=http://13.213.72.83:9000 \
-                    -Dsonar.login=Sonar-token
+                    # -Dsonar.sources=. \
+                    # -Dsonar.host.url=http://13.213.72.83:9000 \
+                    # -Dsonar.login=Sonar-token
                     """
                 }
             }
