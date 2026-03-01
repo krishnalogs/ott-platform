@@ -2,22 +2,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pandacloud-app
+  name: ott-prime-app
   labels:
-    app: pandacloud-app
+    app: ott-prime-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pandacloud-app
+      app: ott-prime-app
   template:
     metadata:
       labels:
-        app: pandacloud-app
+        app: ott-prime-app
     spec:
       containers:
-      - name: pandacloud-container
-        image: 309395755719.dkr.ecr.us-east-1.amazonaws.com/amazon-prime:latest
+      - name: ott-prime-container
+        image: 859384797911.dkr.ecr.ap-southeast-1.amazonaws.com/ott-prime:${BUILD_NUMBER}
         ports:
         - containerPort: 3000
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
 ...
